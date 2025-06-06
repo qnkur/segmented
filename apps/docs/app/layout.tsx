@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
 import ThemeToggleButton from "./components/theme-toggle-button"
-import "@qnkur/segmented/fonts.css"
+import "dseg/css/dseg.css"
 
 export const metadata: Metadata = {
   title: "Create Next App",

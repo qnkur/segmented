@@ -1,84 +1,73 @@
-# Turborepo starter
+# Segmented Display - React Component Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+This is the official monorepo for the development of the `@qnkur/segmented` React component library and its documentation.
 
-## Using this example
+This project is built with [Turborepo](https://turbo.build/repo) and [pnpm](https://pnpm.io) to provide an efficient and pleasant development experience.
 
-Run the following command:
+## The `@qnkur/segmented` Package
 
-```sh
-npx create-turbo@latest
-```
+The primary product of this repository is the `@qnkur/segmented` component, which is published to npm.
 
-## What's inside?
+- **For Users:** If you are looking to **use** the component library in your own project, please refer to the **[package `README.md` file](https://www.google.com/search?q=/packages/ui/README.md)** for installation and usage instructions.
+- **For Contributors:** If you wish to contribute to the library, you can find the source code in the `packages/ui` directory.
 
-This Turborepo includes the following packages/apps:
+## The `docs` Application
 
-### Apps and Packages
+This monorepo also includes a `docs` application, which is a Next.js project that serves two purposes:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+1.  **A live showcase** of the component's features and capabilities.
+2.  **A development environment** for testing the component in a real-world application.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+You can view the live showcase here: **[Live Demo](https://your-deployment-url.com)** _(replace with your deployment URL)_
 
-### Utilities
+## Getting Started with Development
 
-This Turborepo has some additional tools already setup for you:
+The following instructions are for setting up the development environment for this monorepo.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Prerequisites
 
-### Build
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- [pnpm](https://pnpm.io/installation)
 
-To build all apps and packages, run the following command:
+### Setup
 
-```
-cd my-turborepo
-pnpm build
-```
+1.  **Clone the repository:**
 
-### Develop
+    ```bash
+    git clone https://github.com/your-username/segmented.git
+    cd segmented
+    ```
 
-To develop all apps and packages, run the following command:
+2.  **Install dependencies from the root:**
 
-```
-cd my-turborepo
-pnpm dev
-```
+    ```bash
+    pnpm install
+    ```
 
-### Remote Caching
+3.  **Run the development server:**
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+    ```bash
+    pnpm dev
+    ```
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+    This will start the `docs` application on `http://localhost:3001`.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## Available Scripts
 
-```
-cd my-turborepo
-npx turbo login
-```
+The following scripts can be run from the root of the monorepo:
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+- `pnpm build`: Build all packages and apps, optimized by Turborepo.
+- `pnpm dev`: Start the development servers for all apps.
+- `pnpm lint`: Lint all code in the monorepo.
+- `pnpm format`: Format all files with Prettier.
+- `pnpm check-types`: Run TypeScript to check for type errors across all packages.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## Acknowledgements
 
-```
-npx turbo link
-```
+- The DSEG fonts are created by **keshikan**. You can find more information on their [GitHub repository](https://github.com/keshikan/DSEG).
 
-## Useful Links
+## License
 
-Learn more about the power of Turborepo:
+This project is licensed under the MIT License.
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+The DSEG fonts are licensed under the **SIL Open Font License, Version 1.1**.
