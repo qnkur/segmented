@@ -79,7 +79,7 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
     return processedText
       .split("")
       .map((char) => {
-        if (char === "!" || char === ":" || char === ".") {
+        if (char === ":" || char === ".") {
           return char
         }
         return unlitSegmentChar
@@ -90,10 +90,11 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
   const containerClasses = useMemo(
     () =>
       [
-        "relative inline-block align-bottom",
+        "relative",
+        "flex", // Add this
+        "flex-col", // Add this
         fontStyleClass,
         fontWeightClass,
-        "leading-none",
         className,
       ]
         .filter(Boolean)
@@ -103,28 +104,13 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
 
   return (
     <div className={containerClasses} style={fontProperties}>
-      {/* Width-defining bounding box (nearly invisible but rendered) */}
-      <div
-        style={{
-          visibility: "hidden",
-          pointerEvents: "none",
-          height: 0,
-        }}
-      >
-        <span className="select-none">{unlitSegment}</span>
-      </div>
-
       {/* Unlit segments (background) */}
-      <div
-        className="absolute inset-0"
-        style={{ opacity: unlitSegmentOpacity / 100 }}
-      >
+      <div className="" style={{ opacity: unlitSegmentOpacity / 100 }}>
         <span className="select-none">{unlitSegment}</span>
       </div>
-
       {/* Lit segments (foreground) */}
-      <div className="absolute inset-0">
-        <span className="relative">{processedText}</span>
+      <div className="absolute top-0 left-0">
+        <span className="">{processedText}</span>
       </div>
     </div>
   )

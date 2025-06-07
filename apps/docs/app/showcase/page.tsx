@@ -2,6 +2,9 @@
 
 import React, { useState } from "react"
 import { SegmentedDisplay, type FontName } from "@qnkur/segmented"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 type FontWeight = "light" | "normal" | "bold"
 type FontStyle = "normal" | "italic"
@@ -31,13 +34,15 @@ const FontFamilyCard = ({
   text: string
 }) => {
   return (
-    <div className="rounded-lg px-4">
-      <h3 className="text-lg font-medium mb-2">{fontFamily}</h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 gap-10 px-2 mb-8">
+    <Card>
+      <CardHeader>
+        <CardTitle>{fontFamily}</CardTitle>
+      </CardHeader>
+      <CardContent className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3">
         {fontStyles.map((fontStyle) =>
           fontWeights.map((fontWeight) => (
             <div key={`${fontFamily}-${fontStyle}-${fontWeight}`}>
-              <div className={`text-xs opacity-50`}>
+              <div className="mb-2 text-sm text-muted-foreground">
                 <span className={`font-${fontWeight} ${fontStyle}`}>
                   {fontWeight}
                 </span>{" "}
@@ -51,14 +56,15 @@ const FontFamilyCard = ({
                 fontFamily={fontFamily}
                 fontWeight={fontWeight}
                 fontStyle={fontStyle}
+                className="text-2xl"
               >
                 {text}
               </SegmentedDisplay>
             </div>
           ))
         )}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 
@@ -66,57 +72,63 @@ export default function SegmentalDisplayShowcase() {
   const [displayText, setDisplayText] = useState("12:34:56")
 
   return (
-    <div className="py-6 px-12">
-      <div className="mb-8">
-        <h1 className="text-xl font-bold">Segmented Styles</h1>
-        <span>
-          <p className="text-sm">
-            A showcase of the{" "}
-            <a className="" href="https://github.com/keshikan/DSEG">
-              DSEG font families by Keshikan
-            </a>
-            .
-          </p>
-        </span>
+    <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <div className="mb-10">
+        <h1 className="text-4xl font-bold tracking-tight">Segmented Styles</h1>
+        <p className="mt-2 text-lg text-muted-foreground">
+          A showcase of the{" "}
+          <a
+            href="https://github.com/keshikan/DSEG"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DSEG font families by Keshikan
+          </a>
+          .
+        </p>
       </div>
 
-      <div className="mb-12">
-        <label htmlFor="displayText" className="block text-md font-medium mb-2">
-          Enter your text
-        </label>
-        <input
+      <div className="mb-12 grid w-full max-w-sm items-center gap-2">
+        <Label htmlFor="displayText">Enter your text</Label>
+        <Input
           type="text"
           id="displayText"
-          className="block w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg"
           value={displayText}
           onChange={(e) => setDisplayText(e.target.value)}
           placeholder="Enter text to display..."
         />
       </div>
 
-      <div className="mb-8">
-        <h2 className="text-xl font-medium mb-4">7-Segment Fonts</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {fontFamiliesDSEG7.map((fontFamily) => (
-            <FontFamilyCard
-              key={fontFamily}
-              fontFamily={fontFamily}
-              text={displayText}
-            />
-          ))}
+      <div className="space-y-12">
+        <div>
+          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+            7-Segment Fonts
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {fontFamiliesDSEG7.map((fontFamily) => (
+              <FontFamilyCard
+                key={fontFamily}
+                fontFamily={fontFamily}
+                text={displayText}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div>
-        <h2 className="text-lg font-medium mb-4">14-Segment Fonts</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {fontFamiliesDSEG14.map((fontFamily) => (
-            <FontFamilyCard
-              key={fontFamily}
-              fontFamily={fontFamily}
-              text={displayText}
-            />
-          ))}
+        <div>
+          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+            14-Segment Fonts
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {fontFamiliesDSEG14.map((fontFamily) => (
+              <FontFamilyCard
+                key={fontFamily}
+                fontFamily={fontFamily}
+                text={displayText}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
