@@ -5,7 +5,6 @@ import { FONT_DATA, FontName } from "./fonts"
 
 type FontStyle = "normal" | "italic"
 type FontWeight = "light" | "normal" | "bold"
-type SegmentVariant = "light" | "dark" | "colored" | string
 
 interface BasicSegmentalDisplayProps {
   children: React.ReactNode
@@ -15,7 +14,6 @@ interface BasicSegmentalDisplayProps {
   className?: string
   unlitSegmentOpacity?: number
   unlitSegmentCount?: number
-  variant?: SegmentVariant
 }
 
 const DEFAULT_PROPS: Required<
@@ -30,7 +28,6 @@ const DEFAULT_PROPS: Required<
   fontWeight: "normal",
   unlitSegmentOpacity: 15,
   unlitSegmentCount: undefined,
-  variant: "light",
 }
 
 export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
@@ -98,33 +95,34 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
         fontWeightClass,
         "leading-none",
         className,
-        "text-lg",
       ]
         .filter(Boolean)
         .join(" "),
     [fontStyleClass, fontWeightClass, className]
   )
 
-  const unlitSegmentStyle = useMemo(
-    () => ({
-      display: "block",
-      opacity: unlitSegmentOpacity / 100,
-    }),
-    [unlitSegmentOpacity]
-  )
-
-  // to do
-  const unlitSegmentClasses = "select-none"
-  const litSegmentClasses = "relative"
-
   return (
     <div className={containerClasses} style={fontProperties}>
+      {/* Width-defining bounding box (nearly invisible but rendered) */}
+      <div
+        style={{
+          visibility: "hidden",
+          pointerEvents: "none",
+          height: 0,
+        }}
+      >
+        <span className="select-none">{unlitSegment}</span>
+      </div>
+
+      {/* Unlit segments (background) */}
       <div
         className="absolute inset-0"
         style={{ opacity: unlitSegmentOpacity / 100 }}
       >
         <span className="select-none">{unlitSegment}</span>
       </div>
+
+      {/* Lit segments (foreground) */}
       <div className="absolute inset-0">
         <span className="relative">{processedText}</span>
       </div>
