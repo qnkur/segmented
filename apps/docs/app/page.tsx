@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
-import { SegmentedDisplay, type FontName } from "@qnkur/segmented"
-import { Terminal } from "lucide-react"
+import React from "react"
+import { SegmentedDisplay } from "@qnkur/segmented"
+import Link from "next/link"
 import {
   Card,
   CardHeader,
@@ -12,37 +12,17 @@ import {
   CardFooter,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TabsContent } from "@radix-ui/react-tabs"
 import { CodeBlockCommand } from "./components/code-block-command"
-import Link from "next/link"
-
-// A simple hook to create a live clock effect for the demo
-const useClock = () => {
-  const [time, setTime] = useState(new Date())
-
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setTime(new Date())
-    }, 1000)
-    return () => clearInterval(timerId)
-  }, [])
-
-  return time.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  })
-}
+import { cn } from "@/lib/utils"
+import { useClock } from "./hooks/use-clock"
 
 export default function HomePage() {
   const timeString = useClock()
 
   return (
-    <main>
-      <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-        <div className="flex w-full max-w-md flex-col gap-6">
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-md">
+        <div className={cn("flex flex-col gap-6")}>
           <Card>
             <CardHeader className="text-center">
               <CardTitle className="text-xl font-medium">
@@ -53,7 +33,7 @@ export default function HomePage() {
                 Tailwind CSS.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-col gap-2 items-center">
+            <CardContent className="flex flex-col items-center gap-2">
               <SegmentedDisplay
                 fontFamily="DSEG7ClassicMini"
                 fontWeight="bold"
@@ -87,10 +67,6 @@ export default function HomePage() {
                   __yarn__="yarn add @qnkur/segmented dseg"
                   __bun__="bun install @qnkur/segmented dseg"
                 />
-                {/* <code className="bg-muted rounded px-[0.3rem] py-[0.2rem] font-mono text-sm w-full flex items-center justify-center gap-2 whitespace-nowrap">
-                  <Terminal size={16} />
-                  <span>npm i @qnkur/segmented dseg</span>
-                </code> */}
               </div>
               <div className="flex w-full justify-center">
                 <Button variant="link" asChild>
@@ -102,13 +78,16 @@ export default function HomePage() {
                   <Link href={"/docs"}>Docs</Link>
                 </Button>
                 <Button variant="link" asChild>
-                  <Link href={"/showcase"}>Showcase</Link>
+                  <Link href={"/showcase"}>Fonts</Link>
+                </Button>
+                <Button variant="link" asChild>
+                  <Link href={"/examples"}>Examples</Link>
                 </Button>
               </div>
             </CardFooter>
           </Card>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

@@ -18,10 +18,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="absolute right-2 top-2">
-            <ThemeToggleButton />
-          </header>
-          {children}
+          <main>
+            {children}
+            <header className="fixed right-4 top-4">
+              <ThemeToggleButton />
+            </header>
+          </main>
         </ThemeProvider>
       </body>
     </html>
