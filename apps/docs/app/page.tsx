@@ -78,7 +78,7 @@ export default function HomePage() {
                   <Link href={"/docs"}>Docs</Link>
                 </Button>
                 <Button variant="link" asChild>
-                  <Link href={"/showcase"}>Fonts</Link>
+                  <Link href={"/styles"}>Styles</Link>
                 </Button>
                 <Button variant="link" asChild>
                   <Link href={"/examples"}>Examples</Link>

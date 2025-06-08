@@ -68,13 +68,13 @@ const FontFamilyCard = ({
   )
 }
 
-export default function SegmentalDisplayShowcase() {
+export default function SegmentalDisplayStyles() {
   const [displayText, setDisplayText] = useState("12:34:56")
 
   return (
     <div className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
       <div className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight">Segmented Styles</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Styles</h1>
         <p className="mt-2 text-lg text-muted-foreground">
           A showcase of the{" "}
           <a
