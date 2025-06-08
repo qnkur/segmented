@@ -26,4 +26,4 @@ To run this documentation app locally, you'll need to start from the root of the
     pnpm dev
     ```
 
-    This will start the `docs` application, typically on `http://localhost:3001`.
+    This will start the `docs` application on `http://localhost:3000`.

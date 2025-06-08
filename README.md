@@ -50,7 +50,7 @@ The following instructions are for setting up the development environment for th
     pnpm dev
     ```
 
-    This will start the `docs` application on `http://localhost:3001`.
+    This will start the `docs` application on `http://localhost:3000`.
 
 ## Available Scripts
 
