@@ -27,7 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # CORRECTED STEP: Let pnpm read the version from package.json
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -40,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build docs site with Next.js
-        run: pnpm --filter=docs build
+      - name: Build all packages
+        run: pnpm build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
