@@ -94,7 +94,7 @@ export default function DocsPage() {
               You can combine several props to create a more customized and
               advanced display. Refer to the{" "}
               <a
-                href="https://www.keshikan.net/fonts-e.html#:~:text=~-,3.5.Character%20codes,-DSEG7%20and%20DSEG14"
+                href="/segmented/styles"
                 className="font-medium text-primary underline-offset-4 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -132,7 +132,7 @@ export default function DocsPage() {
             <p className="text-lg text-muted-foreground">
               See{" "}
               <a
-                href="/examples"
+                href="/segmented/examples"
                 className="font-medium text-primary underline-offset-4 hover:underline"
                 // target="_blank"
                 rel="noopener noreferrer"
@@ -179,7 +179,7 @@ export default function DocsPage() {
                 <p className="text-muted-foreground">
                   The DSEG{" "}
                   <a
-                    href="/styles"
+                    href="/segmented/styles"
                     className="font-medium text-primary underline-offset-4 hover:underline"
                     rel="noopener noreferrer"
                   >
@@ -204,7 +204,7 @@ export default function DocsPage() {
                 <p className="text-muted-foreground">
                   The font{" "}
                   <a
-                    href="/styles"
+                    href="/segmented/styles"
                     className="font-medium text-primary underline-offset-4 hover:underline"
                     rel="noopener noreferrer"
                   >
@@ -229,7 +229,7 @@ export default function DocsPage() {
                 <p className="text-muted-foreground">
                   The font{" "}
                   <a
-                    href="/styles"
+                    href="/segmented/styles"
                     className="font-medium text-primary underline-offset-4 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
