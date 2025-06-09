@@ -2,7 +2,7 @@
 
 A React component for creating stunning, retro-style segmented displays. This package provides a flexible `<SegmentedDisplay>` component that leverages the [DSEG font family](https://github.com/keshikan/DSEG) by Keshikan.
 
-**[Live Demo & Examples](https://your-deployment-url.com)** _(replace with your docs app deployment URL)_
+**[Docs & Live Demo](https://qnkur.github.io/segmented/)**
 
 ## Features
 
@@ -36,7 +36,7 @@ bun install @qnkur/segmented dseg
 
 ## Usage
 
-### 1. Configure Tailwind CSS (if applicable)
+### 1. Configure Tailwind CSS
 
 You need to add the path to the `@qnkur/segmented` package in your `tailwind.config.js` file. This allows Tailwind to discover the component's classes and include them in your final stylesheet.
 

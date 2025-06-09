@@ -8,17 +8,15 @@ This project is built with [Turborepo](https://turbo.build/repo) and [pnpm](http
 
 The primary product of this repository is the `@qnkur/segmented` component, which is published to npm.
 
-- **For Users:** If you are looking to **use** the component library in your own project, please refer to the **[package `README.md` file](https://www.google.com/search?q=/packages/ui/README.md)** for installation and usage instructions.
+- **For Users:** If you are looking to **use** the component library in your own project, please refer to the **[Docs & Live Demo](https://qnkur.github.io/segmented/)** for installation and usage instructions.
 - **For Contributors:** If you wish to contribute to the library, you can find the source code in the `packages/ui` directory.
 
 ## The `docs` Application
 
 This monorepo also includes a `docs` application, which is a Next.js project that serves two purposes:
 
-1.  **A live showcase** of the component's features and capabilities.
+1.  **Live showcase** of the component's features and capabilities.
 2.  **A development environment** for testing the component in a real-world application.
-
-You can view the live showcase here: **[Live Demo](https://your-deployment-url.com)** _(replace with your deployment URL)_
 
 ## Getting Started with Development
 
@@ -34,7 +32,7 @@ The following instructions are for setting up the development environment for th
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/segmented.git
+    git clone https://github.com/qnkur/segmented.git
     cd segmented
     ```
 
