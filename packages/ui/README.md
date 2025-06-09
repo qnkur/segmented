@@ -1,98 +1,106 @@
 # @qnkur/segmented
 
-A React component for creating stunning, retro-style segmented displays. This package provides a flexible `<SegmentedDisplay>` component built with Tailwind CSS that leverages the [DSEG font family](https://github.com/keshikan/DSEG) by Keshikan.
+A React component for creating stunning, retro-style segmented displays. This package provides a flexible `<SegmentedDisplay>` component that leverages the [DSEG font family](https://github.com/keshikan/DSEG) by Keshikan.
 
-**[Live Demo](https://your-deployment-url.com)** _(replace with your docs app deployment URL)_
+**[Live Demo & Examples](https://your-deployment-url.com)** _(replace with your docs app deployment URL)_
 
 ## Features
 
-- **Built with Tailwind CSS:** Easily customizable using Tailwind utility classes.
+- **Flexible Styling:** Easily customize with Tailwind CSS or standard CSS classes.
 - **Multiple Font Styles:** Supports all 48 font variations from the DSEG font family.
 - **7 & 14 Segments:** Includes both 7-segment and 14-segment font styles.
-- **Unlit Segments:** Renders "unlit" segments for a more realistic display effect.
-- **TypeScript Support:** Fully typed for a better developer experience.
+- **Realistic Effect:** Renders "unlit" segments in the background for a more authentic display appearance.
+- **TypeScript Support:** Fully typed for a superior developer experience.
 
 ## Prerequisites
 
-This component is built using Tailwind CSS. For the styles to be applied correctly, your project must also be set up with Tailwind CSS.
+This component is designed to be styled with utility classes. For the best experience, your project should be set up with Tailwind CSS.
 
 ## Installation
 
-Install the package and its peer dependencies from npm:
+To get started, install the component and its peer dependencies using your preferred package manager:
 
 ```bash
+# pnpm
+pnpm install @qnkur/segmented dseg
+
+# npm
 npm install @qnkur/segmented dseg
-```
 
-or using pnpm:
+# yarn
+yarn add @qnkur/segmented dseg
 
-```bash
-pnpm add @qnkur/segmented dseg
+# bun
+bun install @qnkur/segmented dseg
 ```
 
 ## Usage
 
-1.  **Configure Tailwind CSS**
+### 1. Configure Tailwind CSS (if applicable)
 
-    You need to add the path to the `@qnkur/segmented` package in your `tailwind.config.js` file. This allows Tailwind to scan the component for CSS classes and include them in your final stylesheet.
+You need to add the path to the `@qnkur/segmented` package in your `tailwind.config.js` file. This allows Tailwind to discover the component's classes and include them in your final stylesheet.
 
-    ```js
-    // tailwind.config.js
-    module.exports = {
-      content: [
-        "./src/**/*.{js,ts,jsx,tsx}",
-        // Add the path to the component library
-        "./node_modules/@qnkur/segmented/dist/**/*.js",
-      ],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    }
-    ```
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    // Add the path to the component library
+    "./node_modules/@qnkur/segmented/dist/**/*.js",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-2.  **Import CSS and Component**
+### 2. Import CSS and Component
 
-    In your main application file (e.g., `layout.tsx` or `App.tsx`), import the `dseg` font styles.
+In your root layout or main application file (e.g., `layout.tsx` or `App.tsx`), import the `dseg` font styles. Then, import the component where you want to use it.
 
-    ```tsx
-    import "dseg/css/dseg.css"
-    import { SegmentedDisplay, type FontName } from "@qnkur/segmented"
+```tsx
+import { SegmentedDisplay } from "@qnkur/segmented"
+import "dseg/css/dseg.css"
 
-    function MyComponent() {
-      return (
-        <SegmentedDisplay
-          fontFamily="DSEG7Classic"
-          fontWeight="bold"
-          className="text-red-500" // Style with Tailwind classes!
-        >
-          12:34:56
-        </SegmentedDisplay>
-      )
-    }
-    ```
+function MyComponent() {
+  return <SegmentedDisplay>Hello World</SegmentedDisplay>
+}
+```
+
+### 3. Advanced Usage
+
+Combine props to create a more customized display. You can control the font family, weight, style, and more.
+
+```tsx
+<SegmentedDisplay
+  fontFamily="DSEG7Classic"
+  fontWeight="bold"
+  fontStyle="italic"
+  unlitSegmentOpacity={10}
+  className="text-2xl text-red-500"
+>
+  -45.6°C
+</SegmentedDisplay>
+```
 
 ## Component Props
 
 The `<SegmentedDisplay>` component accepts the following props:
 
-| Prop                  | Type                                       | Default               | Description                                                                                                                                                            |
-| :-------------------- | :----------------------------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `children`            | `React.ReactNode`                          | **Required**          | The content to display.                                                                                                                                                |
-| `fontFamily`          | `FontName`                                 | `'DSEG14ClassicMini'` | The font family to use. See available [FontName types](https://www.google.com/search?q=https://github.com/your-username/segmented/blob/main/packages/ui/src/fonts.ts). |
-| `fontStyle`           | `'normal' \| 'italic'`                     | `'normal'`            | The font style.                                                                                                                                                        |
-| `fontWeight`          | `'light' \| 'normal' \| 'bold'`            | `'normal'`            | The font weight.                                                                                                                                                       |
-| `className`           | `string`                                   | `undefined`           | Additional Tailwind or CSS classes to apply to the component for custom styling (e.g., text color, size).                                                              |
-| `unlitSegmentOpacity` | `number`                                   | `15`                  | The opacity of the unlit segments, from 0 to 100.                                                                                                                      |
-| `unlitSegmentCount`   | `number`                                   | `undefined`           | The number of characters for the unlit background. Defaults to the length of the children.                                                                             |
-| `variant`             | `'light' \| 'dark' \| 'colored' \| string` | `'light'`             | The color variant of the display (to be implemented).                                                                                                                  |
+| Prop                  | Type                            | Default               | Description                                                                      |
+| :-------------------- | :------------------------------ | :-------------------- | :------------------------------------------------------------------------------- |
+| `children`            | `React.ReactNode`               | **Required**          | The content to display inside the component.                                     |
+| `fontFamily`          | `FontName`                      | `'DSEG14ClassicMini'` | The DSEG [font family](https://www.google.com/search?q=dseg+font+family) to use. |
+| `fontStyle`           | `'normal' \| 'italic'`          | `'normal'`            | The font style.                                                                  |
+| `fontWeight`          | `'light' \| 'normal' \| 'bold'` | `'normal'`            | The font weight.                                                                 |
+| `className`           | `string`                        | `undefined`           | Additional CSS classes for custom styling.                                       |
+| `unlitSegmentOpacity` | `number`                        | `15`                  | The opacity of the unlit background segments (from 0 to 100).                    |
 
 ## Acknowledgements
 
-- The DSEG fonts are created by **keshikan**.
+- The DSEG fonts are created by **keshikan** and are licensed under the SIL Open Font License, Version 1.1.
 
 ## License
 
 This package is licensed under the MIT License.
-
-The DSEG fonts are licensed under the **SIL Open Font License, Version 1.1**.

@@ -61,7 +61,7 @@ export function CodeBlock({
   return (
     <div
       data-rehype-pretty-code-figure=""
-      className="relative mt-2 flex w-full overflow-x-auto rounded-md bg-muted"
+      className="relative flex w-full overflow-x-auto rounded-md bg-muted"
     >
       <div
         dangerouslySetInnerHTML={{ __html: html }}

@@ -11,23 +11,22 @@ interface BasicSegmentalDisplayProps {
   fontFamily?: FontName
   fontStyle?: FontStyle
   fontWeight?: FontWeight
-  className?: string
   unlitSegmentOpacity?: number
-  unlitSegmentCount?: number
+  className?: string
+  // unlitSegmentCount?: number
 }
 
 const DEFAULT_PROPS: Required<
   Omit<
     BasicSegmentalDisplayProps,
-    "children" | "className" | "unlitSegmentCount"
+    "children" | "className" /* | "unlitSegmentCount" */
   >
-> &
-  Pick<BasicSegmentalDisplayProps, "unlitSegmentCount"> = {
+> = {
   fontFamily: "DSEG14ClassicMini",
   fontStyle: "normal",
   fontWeight: "normal",
   unlitSegmentOpacity: 15,
-  unlitSegmentCount: undefined,
+  // unlitSegmentCount: undefined,
 }
 
 export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
@@ -38,7 +37,7 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
     fontWeight,
     className,
     unlitSegmentOpacity,
-    unlitSegmentCount,
+    // unlitSegmentCount,
   } = { ...DEFAULT_PROPS, ...props }
 
   const fontProperties = useMemo(() => {
@@ -73,9 +72,9 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
   }, [children])
 
   const unlitSegment = useMemo(() => {
-    if (unlitSegmentCount !== undefined && unlitSegmentCount >= 0) {
-      return unlitSegmentChar.repeat(unlitSegmentCount)
-    }
+    // if (unlitSegmentCount !== undefined && unlitSegmentCount >= 0) {
+    //   return unlitSegmentChar.repeat(unlitSegmentCount)
+    // }
     return processedText
       .split("")
       .map((char) => {
@@ -85,7 +84,7 @@ export default function SegmentedDisplay(props: BasicSegmentalDisplayProps) {
         return unlitSegmentChar
       })
       .join("")
-  }, [processedText, unlitSegmentChar, unlitSegmentCount])
+  }, [processedText, unlitSegmentChar /*, unlitSegmentCount*/])
 
   const containerClasses = useMemo(
     () =>

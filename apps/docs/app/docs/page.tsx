@@ -12,7 +12,7 @@ import { CodeBlock } from "../components/code-block"
 const quickStartImport = `import { SegmentedDisplay } from "@qnkur/segmented";
 import "dseg/css/dseg.css";`
 
-const quickStartUsage = `<SegmentedDisplay>12:34:56</SegmentedDisplay>`
+const quickStartUsage = `<SegmentedDisplay>Hello World</SegmentedDisplay>`
 
 const advancedUsage = `<SegmentedDisplay
   fontFamily="DSEG7Classic"
@@ -64,7 +64,9 @@ export default function DocsPage() {
             <h3 className="text-xl font-semibold tracking-tight">
               Import the component and styles
             </h3>
-            <CodeBlock code={quickStartImport} lang="tsx" showLineNumbers />
+            <div className="mt-4">
+              <CodeBlock code={quickStartImport} lang="tsx" />
+            </div>
           </div>
           <div className="mt-4">
             <h3 className="text-xl font-semibold tracking-tight">
@@ -76,11 +78,13 @@ export default function DocsPage() {
             <div className="mt-2">
               <Card>
                 <CardContent className="p-6">
-                  <SegmentedDisplay>12:34:56</SegmentedDisplay>
+                  <SegmentedDisplay>Hello World</SegmentedDisplay>
                 </CardContent>
               </Card>
             </div>
-            <CodeBlock code={quickStartUsage} lang="tsx" />
+            <div className="mt-4">
+              <CodeBlock code={quickStartUsage} lang="tsx" />
+            </div>
           </div>
           <div className="mt-4">
             <h3 className="text-xl font-semibold tracking-tight">
@@ -88,7 +92,16 @@ export default function DocsPage() {
             </h3>
             <p className="mt-2 text-muted-foreground">
               You can combine several props to create a more customized and
-              advanced display.
+              advanced display. Refer to the{" "}
+              <a
+                href="https://www.keshikan.net/fonts-e.html#:~:text=~-,3.5.Character%20codes,-DSEG7%20and%20DSEG14"
+                className="font-medium text-primary underline-offset-4 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                styles
+              </a>{" "}
+              for a complete list of supported font families.
             </p>
             <div className="mt-2">
               <Card>
@@ -105,7 +118,29 @@ export default function DocsPage() {
                 </CardContent>
               </Card>
             </div>
-            <CodeBlock code={advancedUsage} lang="tsx" showLineNumbers />
+            <div className="mt-4">
+              <CodeBlock code={advancedUsage} lang="tsx" />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+            Examples
+          </h2>
+          <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <p className="text-lg text-muted-foreground">
+              See{" "}
+              <a
+                href="/examples"
+                className="font-medium text-primary underline-offset-4 hover:underline"
+                // target="_blank"
+                rel="noopener noreferrer"
+              >
+                examples
+              </a>
+              .
+            </p>
           </div>
         </div>
 
@@ -146,7 +181,6 @@ export default function DocsPage() {
                   <a
                     href="/styles"
                     className="font-medium text-primary underline-offset-4 hover:underline"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     font family
@@ -172,7 +206,6 @@ export default function DocsPage() {
                   <a
                     href="/styles"
                     className="font-medium text-primary underline-offset-4 hover:underline"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     style
@@ -235,7 +268,7 @@ export default function DocsPage() {
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            {/* <Card>
               <CardHeader>
                 <CardTitle>unlitSegmentCount</CardTitle>
                 <CardDescription>
@@ -249,7 +282,7 @@ export default function DocsPage() {
                   The number of characters for the unlit background.
                 </p>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </div>
