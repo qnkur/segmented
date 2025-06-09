@@ -6,14 +6,31 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { CodeBlockCommand } from "../components/code-block-command"
+import { SegmentedDisplay } from "@qnkur/segmented"
+import { CodeBlock } from "../components/code-block"
+
+const quickStartImport = `import { SegmentedDisplay } from "@qnkur/segmented";
+import "dseg/css/dseg.css";`
+
+const quickStartUsage = `<SegmentedDisplay>12:34:56</SegmentedDisplay>`
+
+const advancedUsage = `<SegmentedDisplay
+  fontFamily="DSEG7Classic"
+  fontWeight="bold"
+  fontStyle="italic"
+  unlitSegmentOpacity={10}
+  className="text-2xl text-red-500"
+>
+  -45.6°C
+</SegmentedDisplay>`
 
 export default function DocsPage() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-10">
         <h1 className="text-4xl font-bold tracking-tight">Documentation</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          How to install and use the `@qnkur/segmented` component.
+          How to install and use the <code>@qnkur/segmented</code> component.
         </p>
       </div>
 
@@ -32,6 +49,63 @@ export default function DocsPage() {
               __yarn__="yarn add @qnkur/segmented dseg"
               __bun__="bun install @qnkur/segmented dseg"
             />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+            Quick Start
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Import the component and its styles, then use it in your
+            application.
+          </p>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Import the component and styles
+            </h3>
+            <CodeBlock code={quickStartImport} lang="tsx" showLineNumbers />
+          </div>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Usage with default props
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              Using the component with default props is straightforward.
+            </p>
+            <div className="mt-2">
+              <Card>
+                <CardContent className="p-6">
+                  <SegmentedDisplay>12:34:56</SegmentedDisplay>
+                </CardContent>
+              </Card>
+            </div>
+            <CodeBlock code={quickStartUsage} lang="tsx" />
+          </div>
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Advanced Usage
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              You can combine several props to create a more customized and
+              advanced display.
+            </p>
+            <div className="mt-2">
+              <Card>
+                <CardContent className="p-6">
+                  <SegmentedDisplay
+                    fontFamily="DSEG7Classic"
+                    fontWeight="bold"
+                    fontStyle="italic"
+                    unlitSegmentOpacity={10}
+                    className="text-2xl text-red-500"
+                  >
+                    -45.6°C
+                  </SegmentedDisplay>
+                </CardContent>
+              </Card>
+            </div>
+            <CodeBlock code={advancedUsage} lang="tsx" showLineNumbers />
           </div>
         </div>
 
@@ -68,11 +142,114 @@ export default function DocsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  The DSEG font family to use.
+                  The DSEG{" "}
+                  <a
+                    href="/styles"
+                    className="font-medium text-primary underline-offset-4 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    font family
+                  </a>{" "}
+                  to use.
                 </p>
               </CardContent>
             </Card>
-            {/* Add more cards for your other props here */}
+            <Card>
+              <CardHeader>
+                <CardTitle>fontStyle</CardTitle>
+                <CardDescription>
+                  <span className="font-mono text-sm">
+                    type: 'normal' | 'italic'
+                  </span>
+                  <br />
+                  <span className="font-mono text-sm">default: 'normal'</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The font{" "}
+                  <a
+                    href="/styles"
+                    className="font-medium text-primary underline-offset-4 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    style
+                  </a>
+                  .
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>fontWeight</CardTitle>
+                <CardDescription>
+                  <span className="font-mono text-sm">
+                    type: 'light' | 'normal' | 'bold'
+                  </span>
+                  <br />
+                  <span className="font-mono text-sm">default: 'normal'</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The font{" "}
+                  <a
+                    href="/styles"
+                    className="font-medium text-primary underline-offset-4 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    weight
+                  </a>
+                  .
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>className</CardTitle>
+                <CardDescription>
+                  <span className="font-mono text-sm">type: string</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Additional CSS classes to apply to the component.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>unlitSegmentOpacity</CardTitle>
+                <CardDescription>
+                  <span className="font-mono text-sm">type: number</span>
+                  <br />
+                  <span className="font-mono text-sm">default: 15</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The opacity of the unlit segments (from 0 to 100).
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>unlitSegmentCount</CardTitle>
+                <CardDescription>
+                  <span className="font-mono text-sm">type: number</span>
+                  <br />
+                  <span className="font-mono text-sm">default: undefined</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The number of characters for the unlit background.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

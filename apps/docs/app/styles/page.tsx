@@ -56,7 +56,7 @@ const FontFamilyCard = ({
                 fontFamily={fontFamily}
                 fontWeight={fontWeight}
                 fontStyle={fontStyle}
-                className="text-2xl"
+                className="text-xl"
               >
                 {text}
               </SegmentedDisplay>
@@ -89,8 +89,25 @@ export default function SegmentalDisplayStyles() {
         </p>
       </div>
 
-      <div className="mb-12 grid w-full max-w-sm items-center gap-2">
-        <Label htmlFor="displayText">Enter your text</Label>
+      <div className="mb-12">
+        <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+          Preview
+        </h2>
+        <p className="mt-4 text-lg text-muted-foreground">
+          Refer to the{" "}
+          <a
+            href="https://www.keshikan.net/fonts-e.html#:~:text=~-,3.5.Character%20codes,-DSEG7%20and%20DSEG14"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            character codes
+          </a>{" "}
+          for a complete list of supported characters.
+        </p>
+        <Label htmlFor="displayText" className="mt-4 mb-3">
+          Text to display
+        </Label>
         <Input
           type="text"
           id="displayText"
@@ -100,35 +117,33 @@ export default function SegmentalDisplayStyles() {
         />
       </div>
 
-      <div className="space-y-12">
-        <div>
-          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
-            7-Segment Fonts
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {fontFamiliesDSEG7.map((fontFamily) => (
-              <FontFamilyCard
-                key={fontFamily}
-                fontFamily={fontFamily}
-                text={displayText}
-              />
-            ))}
-          </div>
+      <div className="mb-10">
+        <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+          7-Segment Fonts
+        </h2>
+        <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {fontFamiliesDSEG7.map((fontFamily) => (
+            <FontFamilyCard
+              key={fontFamily}
+              fontFamily={fontFamily}
+              text={displayText}
+            />
+          ))}
         </div>
+      </div>
 
-        <div>
-          <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
-            14-Segment Fonts
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {fontFamiliesDSEG14.map((fontFamily) => (
-              <FontFamilyCard
-                key={fontFamily}
-                fontFamily={fontFamily}
-                text={displayText}
-              />
-            ))}
-          </div>
+      <div>
+        <h2 className="border-b pb-2 text-3xl font-semibold tracking-tight">
+          14-Segment Fonts
+        </h2>
+        <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {fontFamiliesDSEG14.map((fontFamily) => (
+            <FontFamilyCard
+              key={fontFamily}
+              fontFamily={fontFamily}
+              text={displayText}
+            />
+          ))}
         </div>
       </div>
     </div>
