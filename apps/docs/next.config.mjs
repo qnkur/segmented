@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // transpilePackages is no longer needed for this
+  output: "export",
+  basePath: "/segmented",
 }
 
 export default nextConfig
